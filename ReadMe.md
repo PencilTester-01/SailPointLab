@@ -1,4 +1,4 @@
-#Install Apache Tomcat
+# Install Apache Tomcat
 - `sudo yum install java-1.8.0-openjdk-headless`
 - `java -version`
 - `sudo yum install wget -y && sudo yum install tar`
