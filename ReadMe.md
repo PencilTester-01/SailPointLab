@@ -17,8 +17,9 @@
 * * *
 ## Create a new systemd service file
 /etc/systemd/system/tomcat.service, in the text editor of your choice with the following details:
-* * *
-`[Unit]
+***
+```html
+[Unit]
 Description=Tomcat Server
 After=syslog.target network.target
 
@@ -37,8 +38,9 @@ ExecStart=/usr/local/tomcat/bin/catalina.sh start
 ExecStop=/usr/local/tomcat/bin/catalina.sh stop
 
 [Install]
-WantedBy=multi-user.target`
-* * *
+WantedBy=multi-user.target
+```
+***
 - `sudo systemctl daemon-reload`
 
 - `sudo systemctl enable tomcat`
