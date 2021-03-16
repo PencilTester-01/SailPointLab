@@ -116,7 +116,7 @@ After moving the IdentityIQ.zip to your Machine. Create a folder to unzip the id
 - `cd /usr/local/tomcat/webapps/identityiq/`
 - `jar -xvf identityiq.war`
 - `chmod +x WEB-INF/bin/iiq`
- cd WEB-INF/bin/
+
  
 **Generates DB Scipts**
 Now that "WEB-INF/bin/iiq" is executable
