@@ -131,6 +131,7 @@ After running the above commands the scritps can be found at:
 The script I used was 8.1 mysql, if you installed a different version of SQL at the beginging please adjust accordingly 
 
 **Login into mysql and Run script**
+
 This will do all the heavy lifting for you
 
 - `mysql -u root -p`
@@ -154,17 +155,17 @@ In vim you can enable line numbers by **:set number**
 ### Lines Updated
 - `line 68 dataSource.username=root`
 - `line 69 dataSource.password=Cyberark1`
-* * *
+
 - `150 pluginsDataSource.username=root`
 - `151 pluginsDataSource.password=Cyberark1`
 * * *
 
-### While still inside iiq.properties locate follwing lines:
+### While still inside iiq.properties locate the follwing lines:
 - `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
 - `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
-* * *
+
 **Add "&serverTimezone=UTC" to the end of the lines** 
 - `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
 
