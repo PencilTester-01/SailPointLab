@@ -119,6 +119,7 @@ After moving the IdentityIQ.zip to your Machine. Create a folder to unzip the id
 
  
 **Generates DB Scipts**
+
 Now that "WEB-INF/bin/iiq" is executable
  - `cd WEB-INF/bin/`
 - `./iiq schema`
