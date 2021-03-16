@@ -161,15 +161,15 @@ In vim you can enable line numbers by **:set number**
 * * *
 
 ### While still inside iiq.properties locate the follwing lines:
-- `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
+- `Line 73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
-- `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
+- `Line 155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
 
 **Add "&serverTimezone=UTC" to the end of the lines** 
-- `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
+- `Line 73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
 
-- `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
+- `Line 155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
 
 **Exit VIM and save the file**
 - `:wq!`
