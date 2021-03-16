@@ -10,7 +10,7 @@ Main purpose of this guide, is to combine the resources used to setup the lab. I
 - IdentityIQ 8.1
 
 ## Install Apache Tomcat
-[Link to resource that was followed for Apache Install](https://www.linode.com/docs/guides/apache-tomcat-on-centos-8/)
+[Link to resource used for Apache Install](https://www.linode.com/docs/guides/apache-tomcat-on-centos-8/)
 
 - `yum install java-1.8.0-openjdk-headless`
     
@@ -83,7 +83,7 @@ WantedBy=multi-user.target
 
 ## Installing SQL
 
-[Link to resource that was use for SQL Install](https://linuxize.com/post/how-to-install-mysql-on-centos-8/)
+[Link to resource used for SQL Install](https://linuxize.com/post/how-to-install-mysql-on-centos-8/)
 
 - `dnf install @mysql:8.0`
 - `systemctl enable --now mysqld`
@@ -158,13 +158,13 @@ In vim you can enable line numbers by **:set number**
 - `151 pluginsDataSource.password=Cyberark1`
 * * *
 
-### While still inside iiq.properties change follwing lines:
+### While still inside iiq.properties locate follwing lines:
 - `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
 - `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
 * * *
-**Adding "&serverTimezone=UTC" to the end of the line** 
+**Add "&serverTimezone=UTC" to the end of the lines** 
 - `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
 
 - `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC`
