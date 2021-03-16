@@ -32,7 +32,7 @@ Main purpose of this guide, is to combine the resources used to setup the lab. I
 
 ## Create a new systemd service file
 
-/etc/systemd/system/tomcat.service, in the text editor of your choice with the following details:
+In a text editor open /etc/systemd/system/tomcat.service, in the text editor add the following details:
 
 - `vim /etc/systemd/system/tomcat.service`
 
@@ -85,54 +85,57 @@ WantedBy=multi-user.target
 * * *
 
 ## Reset MySQL user Password
+There will be several prompts when running the command, but you can accept the default values or configure how you wish.
 
+**Reset sql login, with the following cmd:**
 - `mysql\_secure\_installation`
 
-Test Login
+**In my case I set them to:**
+- root
+- Cyberark1
+
+**Test SQL Login**
 
 - `mysql -u root -p`
 - `quit`
 * * *
-## Move & Extract SailPoint Files
-After moving the IdentityIQ.zip to your Machine
-Create a folder to unzip idenity file to
--in my case, I created IDIQ_Home in my users home dir
-mkdir IDIQ_HOME
-mv identityiq.war file from IDIQ_Home /usr/local/tomcat/webapps/identityiq/
-cd /usr/local/tomcat/webapps/identityiq/
-jar -xvf identityiq.war
 
-While still in /usr/local/tomcat/webapps/identityiq/
-chmod +x WEB-INF/bin/iiq
-cd cd WEB-INF/bin/
+## Move and Extract SailPoint Files
+After moving the IdentityIQ.zip to your Machine create folder to unzip idenity file to in my case, I created "IDIQ_Home" in my users(root) home directory.
 
-Generates DB Scipts
-./iiq schema
+- `mkdir IDIQ_HOME`
+- `mkdir /usr/local/tomcat/webapps/identityiq/`
+- `mv identityiq.war /usr/local/tomcat/webapps/identityiq/`
+- `cd /usr/local/tomcat/webapps/identityiq/`
+- `jar -xvf identityiq.war`
+- `chmod +x WEB-INF/bin/iiq`
+ cd WEB-INF/bin/
+ 
+**Generates DB Scipts**
+Now that "WEB-INF/bin/iiq" is executable
+ - `cd WEB-INF/bin/`
+- `./iiq schema`
 
-scritps can be found
+After running the above commands the scritps can be found at:
+- `/usr/local/tomcat/webapps/identityiq/WEB-INF/database`
+- `ls`
+- 
+The one I will be using is 8.1 mysql, if you installed a different version of SQL at the beginging please adjust accordingly 
 
-/usr/local/tomcat/webapps/identityiq/WEB-INF/database
+**Login into mysql and Run script**
+This will do all the heavy lifting for you
 
-ls
-
-in my case using 
-create_identityiq_tables-8.1.mysql
-
-### Login into mysql and Run script
-this will do all the heavy lifting for you
-
-mysql -u root -p
-create_identityiq_tables-8.1.mysql;
-
-quit
+- `mysql -u root -p`
+- `source create_identityiq_tables-8.1.mysql;`
+- `quit`
 
 * * *
 
 ## Update iiq.properties
-vim /usr/local/tomcat/webapps/identityiq/WEB-INF/classes/iiq.properties
+- `vim /usr/local/tomcat/webapps/identityiq/WEB-INF/classes/iiq.properties`
 
-Here we have to change several lines
-in vim you can enable line number by **:set number**
+Here we have to change several lines In iiq.properties
+In vim you can enable line numbers by **:set number**
 * * *
 - `line 68 dataSource.username=username`
 - `line 69 dataSource.password=randompassword`
@@ -148,7 +151,7 @@ in vim you can enable line number by **:set number**
 - `151 pluginsDataSource.password=Cyberark1`
 * * *
 
-### While iiq.propteries is still open change follwing lines:
+### While still inside iiq.properties change follwing lines:
 - `73 dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
 
 - `155 pluginsDataSource.url=jdbc:mysql://localhost/identityiqPlugin?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false`
@@ -173,9 +176,9 @@ in vim you can enable line number by **:set number**
 * * *
 
 ## Restart Tomcat
-systemctl restart tomcat
+- `systemctl restart tomcat`
 
 ## Open Login Page
 - `http://yourVMIpaddress:8080/identityiq/login.`
-- spadmin
-- admin
+- USERNAME = spadmin
+- PASSWORD = admin
