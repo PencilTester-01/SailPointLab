@@ -25,8 +25,8 @@ Main purpose of this guide, is to combine the resources used to setup the lab. I
 
 ## Create Tomcat User
 
-- `sudo useradd -r tomcat`
-- `sudo chown -R tomcat:tomcat /usr/local/tomcat`
+- `useradd -r tomcat`
+- `chown -R tomcat:tomcat /usr/local/tomcat`
 
 * * *
 
@@ -37,7 +37,7 @@ Main purpose of this guide, is to combine the resources used to setup the lab. I
 - `vim /etc/systemd/system/tomcat.service`
 
 * * *
-
+```
 \[Unit\]
 Description=Tomcat Server
 After=syslog.target network.target
@@ -58,7 +58,7 @@ ExecStop=/usr/local/tomcat/bin/catalina.sh stop
 
 \[Install\]
 WantedBy=multi-user.target
-
+```
 * * *
 
 - `systemctl daemon-reload`
@@ -93,9 +93,10 @@ Test Login
 - `mysql -u root -p`
 - `quit`
 * * *
-After moving the IdentityIQ Zip to your Machine
-create folder to unzip idenity file to
-	in my case, I created IDIQ_Home
+## Move & Extract SailPoint Files
+After moving the IdentityIQ.zip to your Machine
+Create a folder to unzip idenity file to
+-in my case, I created IDIQ_Home in my users home dir
 mkdir IDIQ_HOME
 mv identityiq.war file from IDIQ_Home /usr/local/tomcat/webapps/identityiq/
 cd /usr/local/tomcat/webapps/identityiq/
