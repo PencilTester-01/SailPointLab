@@ -1,6 +1,13 @@
 # SailPoint (Identity IQ 8.1 Lab SetUp)
 
-Main purpose of this guide, is to combine the resources used to setup the lab. In an all in one location. I tried to condense as much as posible, while providing links to the orginal guides followed. Hope It Helps!
+Main purpose of this guide, is to combine the resources used to setup the lab. In an all in one location. I tried to condense as much as posible, while providing links to the orginal guides followed. Hope It Helps! 
+
+## Lab Enviroment
+- Virtual Box
+- Centos8
+- MySQL 8
+- Apache Tomcat 9
+- IdentityIQ 8.1
 
 ## Install Apache Tomcat
 [Link to resource that was followed for Apache Install](https://www.linode.com/docs/guides/apache-tomcat-on-centos-8/)
@@ -85,7 +92,7 @@ WantedBy=multi-user.target
 * * *
 
 ## Reset MySQL user Password
-There will be several prompts when running the command, but you can accept the default values or configure how you wish.
+There will be several prompts when running the command, you can accept the default values or configure how you wish.
 
 **Reset sql login, with the following cmd:**
 - `mysql\_secure\_installation`
@@ -101,7 +108,7 @@ There will be several prompts when running the command, but you can accept the d
 * * *
 
 ## Move and Extract SailPoint Files
-After moving the IdentityIQ.zip to your Machine create folder to unzip idenity file to in my case, I created "IDIQ_Home" in my users(root) home directory.
+After moving the IdentityIQ.zip to your Machine. Create a folder to unzip the idenityiq.zip file to, in my case, I created "IDIQ_Home" in my users(root) home directory.
 
 - `mkdir IDIQ_HOME`
 - `mkdir /usr/local/tomcat/webapps/identityiq/`
@@ -119,8 +126,8 @@ Now that "WEB-INF/bin/iiq" is executable
 After running the above commands the scritps can be found at:
 - `/usr/local/tomcat/webapps/identityiq/WEB-INF/database`
 - `ls`
-- 
-The one I will be using is 8.1 mysql, if you installed a different version of SQL at the beginging please adjust accordingly 
+
+The script I used was 8.1 mysql, if you installed a different version of SQL at the beginging please adjust accordingly 
 
 **Login into mysql and Run script**
 This will do all the heavy lifting for you
